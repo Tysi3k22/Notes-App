@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.root {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    transform: translate(-13%, -13%);
+    background-color: rgb(93, 98, 98);
+    width: 95%;
+    height: 95%;
+    padding: 20px;
+    border-radius: 20px;
+    gap: 20px;
+}
+
+h1 {
+    color: #000000;
+    font-size: 48px;
+}
+
+input[type="text"] {
+    padding: 15px;
+    border-radius: 10px;
+    border: 0.2px solid;
+    background: transparent;
+    width: 200px;
+}
+
+.inputText::before {
+    content: 'Write your note';
+    top: 112px;
+    left: 35px;
+    position: absolute;
+    color: #ffffff;
+    font-size: 10px;
+    opacity: 0.8;
+    transition: all 0.4s ease-in-out;
+}
+
+input[type="text"]:focus {
+    outline: none;
+}
+
+input[type="text"]:focus + .inputText::before{
+    transform: translate(-3px, -25px);
+    opacity: 1;
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    width: 200px;
+    margin-top: -10px;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.AddNote {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
