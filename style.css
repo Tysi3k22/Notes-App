@@ -18,6 +18,7 @@
     padding: 20px;
     border-radius: 20px;
     gap: 20px;
+    align-items: center;
 }
 
 h1 {
@@ -33,22 +34,26 @@ input[type="text"] {
     width: 200px;
 }
 
+.inputText {
+    position: relative;
+}
+
 .inputText::before {
     content: 'Write your note';
-    top: 112px;
-    left: 35px;
     position: absolute;
-    color: #ffffff;
+    top: 15px;
+    left: 15px;
+    color: #fff;
     font-size: 10px;
     opacity: 0.8;
     transition: all 0.4s ease-in-out;
+    pointer-events: none;
 }
 
-input[type="text"]:focus {
-    outline: none;
-}
-
-input[type="text"]:focus + .inputText::before{
+/* focus */
+.inputText:has(input:focus)::before,
+/* gdy input NIE jest pusty */
+.inputText:has(input:not(:placeholder-shown))::before {
     transform: translate(-3px, -25px);
     opacity: 1;
 }
@@ -68,5 +73,51 @@ button:hover {
 .AddNote {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 20px;  
+    position: relative;
+}
+
+.Notes {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 12px;
+    padding: 10px;
+}
+
+.notesItem {
+    position: relative;
+
+    width: 220px;
+    height: 220px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.notesItem h2 {
+    position: relative;
+    top: 5px;
+}
+
+.removeItem {
+    position: absolute;
+    top: 18px;
+    right: 8px;
+    width: 40px;
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.notesItem h5 {
+    position: relative;
+    margin-top: auto;
+    align-self: flex-end;
+    margin-bottom: 0;
+    font-size: 12px;
 }
