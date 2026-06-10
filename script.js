@@ -31,12 +31,14 @@ function removeItem(item, element) {
     }
 
     element.remove();
+    updateCounter();
 }
 
 addNoteBtn.addEventListener("click", () => {
     let noteTitle = document.getElementById('Note').value;
 
     createItem(noteTitle, "", formatedDate);
+    document.getElementById('Note').value = '';
 })
 
 function loadItems() {
@@ -44,15 +46,23 @@ function loadItems() {
         createItem(el.text, el.dis, el.date, false);
     });
 }
+ 
+function updateCounter() {
+    document.getElementById('notesCounter').innerHTML = notesArr.length + ' notes';
+}
 
 function createItem(text, dis, date, save = true) {
     let div = document.createElement('div');
+    let leftSide = document.createElement('div');
+    let leftSideBar = document.createElement('div');
+    let rightSide = document.createElement('div');
     let removeItemBtn = document.createElement('button')
     let header1 = document.createElement('h2');
     let header2 = document.createElement('h5');
 
     if(text === '') return;
     
+    leftSideBar.classList.add('leftSideBar')
     div.classList.add('notesItem');
     removeItemBtn.classList.add('removeItem')
 
@@ -72,10 +82,15 @@ function createItem(text, dis, date, save = true) {
 
 
     if(save) saveItem(item);
+
+    updateCounter();
     
-    div.appendChild(header1)
-    div.appendChild(removeItemBtn)
-    div.appendChild(header2)
+    leftSide.appendChild(leftSideBar)
+    leftSide.appendChild(header1)
+    leftSide.appendChild(header2)
+    rightSide.appendChild(removeItemBtn)
+    div.appendChild(leftSide)
+    div.appendChild(rightSide)
     notes.appendChild(div);
 }
 

@@ -8,16 +8,29 @@
 </head>
 <body>
     <div class="root">
-        <div class="AddNote">
-            <h1>Notes App</h1>
-            <div class="inputText">
-                <input type="text" placeholder=" " id="Note">
+        <div class="title">
+            <div>
+                <h1>Notes</h1>
             </div>
-
-            <button id="addNoteBtn">Add Note</button>
+            <h3 id="notesCounter">0 notes</h3>
         </div>
+        
+        <div class="AddNote">
+            <p class="new-note-label">New Note</p>
+            <div class="input-container">
+                <textarea id="Note" name="note" placeholder="Write your note..."></textarea>
+            </div>
+            <div class="button-container">
+                <button id="addNoteBtn">
+                    <i class="ti ti-plus" aria-hidden="true"></i> Add Note
+                </button>
+            </div>
+        </div>
+        
+        <p class="saved-label">Saved</p>
+    
         <div class="Notes" id="Notes">
-            <!-- Notes Here -->
+           
         </div>
     </div>
 
